@@ -38,11 +38,11 @@ class ABInsurance implements IInsurance {
 
 
 abstract class InsuranceFactory{
-    db:any
+     db =  []
     abstract  createInsurance():IInsurance
 
     saveHistory(ins:IInsurance):void{
-        this.db.save(ins.id, ins.status)
+        this.db.push(ins)
     }
 }
 
@@ -60,8 +60,17 @@ class ABInsuranceFactory extends InsuranceFactory{
 const tfInsuranceFactory = new TFInsuranceFactory()
 const ins = tfInsuranceFactory.createInsurance()
 
+const abInsuranceFactorry = new ABInsuranceFactory()
+const abs = abInsuranceFactorry.createInsurance()
+
+
 
 tfInsuranceFactory.saveHistory(ins)
+tfInsuranceFactory.saveHistory(abs)
+
+
+console.log(tfInsuranceFactory.db)
+
 
 
 

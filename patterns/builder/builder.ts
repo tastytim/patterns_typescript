@@ -59,4 +59,6 @@ builder
   .addResolution(120, 580)
   .addResolution(350, 750)
   .build();
+
+  
 console.log(builder);
